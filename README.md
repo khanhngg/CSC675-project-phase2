@@ -25,7 +25,13 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
 ```
-4. // TODO
+
+5. To exit: 
+```
+mysql> exit
+```
+
+6. // TODO
 
 
 # Requirements
