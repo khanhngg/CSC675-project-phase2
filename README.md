@@ -69,8 +69,7 @@ $ mysql -u root -p csc675project
 - At least 2 indexes (hash-­based or tree­‐based)
 
 ### Task 2 - Collect and import data
-- // TODO: link to where data is from?
-- // TODO: brief overview what's in the data
+- You can collect data manually or import data from any available online data repository.
 
 ### Task 3 - Write SQL Queries
 - At least 2 queries involving GROUP BY, HAVING, and aggregate operators
