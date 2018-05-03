@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS players
   team_name VARCHAR(255),
   jersey_number INT(2),
   position VARCHAR(255),
-  years_in_team INT(2),
+  years_pro INT(2),
   PRIMARY KEY (id)
 );
 ```
@@ -226,8 +226,18 @@ CREATE INDEX index_cname_tname
 ON coaches (coach_name, team_name);
 ```
 
-## INSERT INTO
+## CREATE VIEW
+### 1. //
+```sql
 
+```
+
+## 2. //
+```sql
+
+```
+
+## INSERT INTO
 ### 1. Teams
 ```sql
 INSERT INTO teams
@@ -245,8 +255,28 @@ VALUES
   (1,'Golden State Warriors', 11, 'idk', 10),
   (2,'Other', 11, 'idk', 10);
 ```
+## SELECT QUERIES
+### GROUP BY, HAVING, aggregate operators
+### 1. //
+```sql
 
-## GROUP BY, HAVING ...
+```
+
+## 2. //
+```sql
+
+```
+
+### IN, EXIST, op ANY, op ALL (nested queries)
+### 1. //
+```sql
+
+```
+
+## 2. //
+```sql
+
+```
 
 
 # Results / Screenshots
