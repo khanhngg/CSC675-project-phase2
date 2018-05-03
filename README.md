@@ -285,7 +285,7 @@ VALUES
   (3, 'Draymond Green', 27, 'Golden State Warriors', 23, 'PF', 5),
   (4, 'Stephen Curry', 29, 'Golden State Warriors', 30, 'PG', 8),
   (5, 'Andre Iguodala', 34, 'Golden State Warriors', 9, 'SF', 13),
-  (6, 'Quinn Cook', 24, 'Golden State Warriors', 4, 'PG'),
+  (6, 'Quinn Cook', 24, 'Golden State Warriors', 4, 'PG', 1),
   (7, 'Nick Young', 32, 'Golden State Warriors', 6, 'SG', 10),
   (8, 'Patrick McCaw', 22, 'Golden State Warriors', 0, 'SG', 1),
   (9, 'Shaun Livingston', 32, 'Golden State Warriors', 34, 'PG', 12),
