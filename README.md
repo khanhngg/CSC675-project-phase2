@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS coaches
 ### 4. Mascots
 
 ```sql
-CREATE TABLE IF NOT EXISTS coaches
+CREATE TABLE IF NOT EXISTS mascots
 (
   id INTEGER NOT NULL AUTO_INCREMENT,
   mascot_name VARCHAR(255) NOT NULL,
@@ -205,7 +205,25 @@ CREATE TABLE IF NOT EXISTS contracts
 );
 ```
 
-## INSERT ...
+## INSERT INTO
+
+### 1. Teams
+```sql
+INSERT INTO teams
+  (id, team_name, number_of_players, origin, year_established, owner)
+VALUES
+  (1,'Golden State Warriors', 11, 'idk', 10),
+  (2,'Other', 11, 'idk', 10);
+```
+
+### 2. // todo -- see above
+```sql
+INSERT INTO teams
+  (id, team_name, number_of_players, origin, year_established, owner)
+VALUES
+  (1,'Golden State Warriors', 11, 'idk', 10),
+  (2,'Other', 11, 'idk', 10);
+```
 
 ## GROUP BY, HAVING ...
 
