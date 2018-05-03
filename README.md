@@ -227,14 +227,24 @@ ON coaches (coach_name, team_name);
 ```
 
 ## CREATE VIEW
-### 1. //
+### 1.
 ```sql
+CREATE VIEW view_coaches_in_teams AS
+  SELECT coach_name, team_name
+  FROM coaches
+  WHERE coaches.years_in_team > 2;
 
+SELECT * FROM view_coaches_in_teams;
 ```
 
-### 2. //
+### 2.
 ```sql
+CREATE VIEW view_players_in_teams AS
+  SELECT player_name, team_name
+  FROM players
+  WHERE players.years_pro >= 2 AND players.years_pro < 5;
 
+  SELECT * FROM view_players_in_teams;
 ```
 
 ## INSERT INTO
