@@ -8,10 +8,21 @@ https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_mascots
 
 
 # Setup (in terminal)
-1. Make sure to have MySQL installed: 
-`$ mysql --version`
-2. Start MySQL: `$ mysql.server start`
-3. Run MySQL: `$ mysql -u root -p`
+1. Make sure to have MySQL installed:
+```
+$ mysql --version
+````
+
+2. Start MySQL:
+```
+$ mysql.server start
+```
+
+3. Run MySQL:
+```
+$ mysql -u root -p
+```
+
 4. Terminal should look like this:
 ```
 $ mysql -u root -p
