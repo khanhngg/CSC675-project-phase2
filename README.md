@@ -69,8 +69,7 @@ $ mysql -u root -p csc675project
 - At least 2 indexes (hash-­based or tree­‐based)
 
 ### Task 2 - Collect and import data
-- // TODO: link to where data is from?
-- // TODO: brief overview what's in the data
+- You can collect data manually or import data from any available online data repository.
 
 ### Task 3 - Write SQL Queries
 - At least 2 queries involving GROUP BY, HAVING, and aggregate operators
@@ -191,29 +190,24 @@ CREATE TABLE IF NOT EXISTS contracts
 );
 ```
 
-## CREATE INDEX
-### 1. stuff
+## CREATE INDEX (BTREE)
+### 1. Players
 
 ```sql
-CREATE TABLE IF NOT EXISTS contracts
-(
-  id INTEGER NOT NULL AUTO_INCREMENT,
-  team_name VARCHAR(255) NOT NULL,
-  player_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, team_name, player_name)
-);
+CREATE INDEX index_name_age
+ON players (player_name, age);
 ```
 
-### 2. stuff
+```sql
+CREATE INDEX index_name_jersey
+ON players (player_name, age);
+```
+
+### 2. Coaches
 
 ```sql
-CREATE TABLE IF NOT EXISTS contracts
-(
-  id INTEGER NOT NULL AUTO_INCREMENT,
-  team_name VARCHAR(255) NOT NULL,
-  player_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, team_name, player_name)
-);
+CREATE INDEX index_cname_tname
+ON coaches (coach_name, team_name);
 ```
 
 ## INSERT INTO
