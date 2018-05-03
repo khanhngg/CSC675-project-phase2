@@ -191,29 +191,24 @@ CREATE TABLE IF NOT EXISTS contracts
 );
 ```
 
-## CREATE INDEX
-### 1. stuff
+## CREATE INDEX (BTREE)
+### 1. Players
 
 ```sql
-CREATE TABLE IF NOT EXISTS contracts
-(
-  id INTEGER NOT NULL AUTO_INCREMENT,
-  team_name VARCHAR(255) NOT NULL,
-  player_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, team_name, player_name)
-);
+CREATE INDEX index_name_age
+ON players (player_name, age);
 ```
 
-### 2. stuff
+```sql
+CREATE INDEX index_name_jersey
+ON players (player_name, age);
+```
+
+### 2. Coaches
 
 ```sql
-CREATE TABLE IF NOT EXISTS contracts
-(
-  id INTEGER NOT NULL AUTO_INCREMENT,
-  team_name VARCHAR(255) NOT NULL,
-  player_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, team_name, player_name)
-);
+CREATE INDEX index_cname_tname
+ON coaches (coach_name, team_name);
 ```
 
 ## INSERT INTO
