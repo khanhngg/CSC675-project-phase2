@@ -69,7 +69,8 @@ $ mysql -u root -p csc675project
 - At least 2 indexes (hash-­based or tree­‐based)
 
 ### Task 2 - Collect and import data
-- You can collect data manually or import data from any available online data repository.
+- // TODO: link to where data is from?
+- // TODO: brief overview what's in the data
 
 ### Task 3 - Write SQL Queries
 - At least 2 queries involving GROUP BY, HAVING, and aggregate operators
@@ -80,7 +81,7 @@ $ mysql -u root -p csc675project
 - The snapshot of the results of your SELECT queries. If the results of your select queries are large just include part of the results.
 
 # Queries
-## CREATE TABLE
+## CREATE TABLE + FOREIGN KEY CONSTRAINTS
 
 ### 1. Teams
 
@@ -150,7 +151,11 @@ CREATE TABLE IF NOT EXISTS trains
   id INTEGER NOT NULL AUTO_INCREMENT,
   coach_name VARCHAR(255) NOT NULL,
   player_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, coach_name, player_name)
+  PRIMARY KEY (id),
+  FOREIGN KEY (coach_name) 
+    REFERENCES coaches(coach_name),
+  FOREIGN KEY (player_name)
+    REFERENCES players(player_name)
 );
 ```
 
@@ -162,7 +167,11 @@ CREATE TABLE IF NOT EXISTS represents
   id INTEGER NOT NULL AUTO_INCREMENT,
   mascot_name VARCHAR(255) NOT NULL,
   team_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, mascot_name, team_name)
+  PRIMARY KEY (id),
+  FOREIGN KEY (mascot_name)
+    REFERENCES mascots(mascot_name),
+  FOREIGN KEY (team_name)
+    REFERENCES teams(team_name)
 );
 ```
 
@@ -174,7 +183,11 @@ CREATE TABLE IF NOT EXISTS has
   id INTEGER NOT NULL AUTO_INCREMENT,
   team_name VARCHAR(255) NOT NULL,
   coach_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, team_name, coach_name)
+  PRIMARY KEY (id),
+  FOREIGN KEY (team_name)
+    REFERENCES teams(team_name),
+  FOREIGN KEY (coach_name)
+    REFERENCES coaches(coach_name)
 );
 ```
 
@@ -186,7 +199,11 @@ CREATE TABLE IF NOT EXISTS contracts
   id INTEGER NOT NULL AUTO_INCREMENT,
   team_name VARCHAR(255) NOT NULL,
   player_name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id, team_name, player_name)
+  PRIMARY KEY (id),
+  FOREIGN KEY (team_name)
+    REFERENCES teams(team_name),
+  FOREIGN KEY (player_name)
+    REFERENCES players(player_name)
 );
 ```
 
