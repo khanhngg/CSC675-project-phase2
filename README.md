@@ -275,7 +275,7 @@ VALUES
   (2, 'Benny the Bull', 'Chicago Bulls', 'Chicago Bulls Uniform, no. 1');
 ```
 
-### 3. Players
+### 4. Players
 ```sql
 INSERT INTO players
   (id, player_name, age, team_name, jersey_number, position, years_pro)
@@ -351,22 +351,45 @@ GROUP BY p.team_name
 HAVING p.years_pro > 5;
 ```
 
-### 2. //
+### 2. Find names of players with age >= 30
 ```sql
-
+SELECT p.player_name
+FROM players as p
+HAVING p.age >= 30;
 ```
 
 ### IN, EXIST, op ANY, op ALL (nested queries)
-### 1. //
+### 1. IN - Find num_players whose position in PG
+```sql
+SELECT teams.num_players
+FROM teams.Golden State Warriors
+WHERE teams.id IN (SELECT teams.position
+                  FROM teams.Golden State Warriors
+                  WHERE teams.position=PG);
+```
+
+### 2. EXIST - Find number of players who has more than 5 years of experience
+```sql
+SELECT teams.num_players
+FROM team. Golden State Warriors
+WHERE EXISTS (SELECT *
+              FROM team. Golden State Warriors
+              WHERE team. num_players AND teams years_pro >5);
+```
+
+### 3. ANY - Find all players in chicago bull with age > 30 than any players in the same team
+```sql
+SELECT *
+FROM teams.Chicago Bulls
+WHERE teams.age > ANY (SELECT teams.Chicago Bulls
+                      FROM teams.Chicago Bulls
+                      WHERE teams.Chicago Bulls.age=’30’);
+```
+
+### 4. ALL
 ```sql
 
 ```
-
-### 2. //
-```sql
-
-```
-
 
 # Results / Screenshots
 - CREATE TABLE
