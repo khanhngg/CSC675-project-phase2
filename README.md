@@ -236,16 +236,18 @@ CREATE VIEW view_coaches_in_teams AS
 
 SELECT * FROM view_coaches_in_teams;
 ```
+![view1](./ss/view1.png)
 
 ### 2.
 ```sql
 CREATE VIEW view_players_in_teams AS
-  SELECT player_name, team_name
-  FROM players
-  WHERE players.years_pro >= 2 AND players.years_pro < 5;
+  SELECT p.player_name, p.team_name, p.years_pro
+  FROM players p 
+  WHERE p.years_pro >= 2 AND p.years_pro < 5;
 
-  SELECT * FROM view_players_in_teams;
+SELECT * FROM view_players_in_teams;
 ```
+![view2](./ss/view2.png)
 
 ## INSERT INTO
 ### 1. Teams
@@ -424,75 +426,87 @@ VALUES
 ```sql
 SELECT * FROM teams;
 ```
+![teams](./ss/select_teams.png)
 
 ### 2. Players
 
 ```sql
 SELECT * FROM players;
 ```
+![players](./ss/select_players.png)
 
 ### 3. Coaches
 
 ```sql
 SELECT * FROM coaches;
 ```
+![coaches](./ss/select_coaches.png)
 
 ### 4. Mascots
 ```sql
 SELECT * FROM mascots;
 ```
+![mascots](./ss/select_mascots.png)
 
 ### GROUP BY, HAVING, aggregate operators
 ### 1. Find how many players have years of experience greater than 5 in each team
 ```sql
 SELECT p.team_name, p.years_pro, count(*)
-FROM players as p
+FROM players p
 GROUP BY p.team_name, p.years_pro
 HAVING p.years_pro > 5
 ORDER BY p.team_name;
 ```
+![groupby_having](./ss/groupby_having.png)
 
 ### 2. Find names of players with age >= 30
 ```sql
-SELECT p.player_name
-FROM players as p
+SELECT p.player_name, p.age
+FROM players p
 HAVING p.age >= 30;
 ```
+![having](./ss/having.png)
 
 ### IN, EXIST, op ANY, op ALL (nested queries)
 ### 1. IN - Find players whose position is PG in Golden State Warriors team
 ```sql
 SELECT *
-FROM players as p
+FROM players p
 WHERE p.position = 'PG'
   AND p.team_name IN (SELECT t.team_name
                   FROM teams t
                   WHERE t.team_name = 'Golden State Warriors');
 ```
+![in](./ss/in.png)
 
-### 2. EXIST - Find the names of players that are trained by Fred Hoiberg
-```sql
-SELECT p.player_name
-FROM players as p
-WHERE EXISTS (SELECT *
-              FROM trains as t
-              WHERE t.coach_name = 'Fred Hoiberg' AND t.player_name = p.player_name);
-```
-
-### 3. ANY - Find all players in Chicago Bulls whose age is greater than any players whose age is greater than 30 in team Golden State Warriors
+### 2. EXISTS - Find the players that are trained by Fred Hoiberg
 ```sql
 SELECT *
-FROM players as p
+FROM players p
+WHERE EXISTS (SELECT *
+              FROM trains t, coaches c
+              WHERE c.coach_name = 'Fred Hoiberg' 
+              AND t.player_id = p.id 
+              AND t.coach_id = c.id);
+```
+![exists](./ss/exists.png)
+
+### 3. ANY - Find all players in Chicago Bulls whose age is greater than any players whose age is greater than 25 in team Golden State Warriors
+```sql
+SELECT *
+FROM players p
 WHERE p.team_name = 'Chicago Bulls'
   AND p.age > ANY (SELECT p2.age
-                      FROM players as p2
-                      WHERE p2.age > 30 AND p2.team_name = 'Golden State Warriors');
+                      FROM players p2
+                      WHERE p2.age > 25 AND p2.team_name = 'Golden State Warriors');
 ```
+![any](./ss/any.png)
 
-### 4. ALL - Find the player with the highest number of years pro
+### 4. ALL - Find the player and their team name with the highest number of years pro
 ```sql
-SELECT p.player_name, p.years_pro
-FROM players as p
+SELECT p.player_name, p.team_name, p.years_pro
+FROM players p
 WHERE p.years_pro >= ALL (SELECT p2.years_pro
                           FROM players p2);
 ```
+![all](./ss/all.png)
