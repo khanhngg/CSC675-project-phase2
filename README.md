@@ -268,6 +268,13 @@ VALUES
 
 ### 4. Players
 
+Abbreviation of positions:
+- PG: Point Guard
+- SG: Shooting Guard
+- SF: Small Forward
+- PF: Power Forward
+- C: Center
+
 ```sql
 INSERT INTO players
   (id, player_name, age, team_name, jersey_number, position, years_pro)
