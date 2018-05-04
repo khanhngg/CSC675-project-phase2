@@ -495,9 +495,3 @@ FROM players as p
 WHERE p.years_pro >= ALL (SELECT p2.years_pro
                           FROM players p2);
 ```
-
-# Results / Screenshots
-- CREATE TABLE
-- INSERT ...
-- GROUP BY, HAVING ...
-- IN, EXIST, ...
