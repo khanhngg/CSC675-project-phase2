@@ -148,13 +148,13 @@ CREATE TABLE IF NOT EXISTS mascots
 CREATE TABLE IF NOT EXISTS trains
 (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  coach_name VARCHAR(255) NOT NULL,
-  player_name VARCHAR(255) NOT NULL,
+  coach_id INTEGER NOT NULL,
+  player_id INTEGER NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (coach_name) 
-    REFERENCES coaches(coach_name),
-  FOREIGN KEY (player_name)
-    REFERENCES players(player_name)
+  FOREIGN KEY (coach_id) 
+    REFERENCES coaches(id),
+  FOREIGN KEY (player_id)
+    REFERENCES players(id)
 );
 ```
 
@@ -164,13 +164,13 @@ CREATE TABLE IF NOT EXISTS trains
 CREATE TABLE IF NOT EXISTS represents
 (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  mascot_name VARCHAR(255) NOT NULL,
-  team_name VARCHAR(255) NOT NULL,
+  mascot_id INTEGER NOT NULL,
+  team_id INTEGER NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (mascot_name)
-    REFERENCES mascots(mascot_name),
-  FOREIGN KEY (team_name)
-    REFERENCES teams(team_name)
+  FOREIGN KEY (mascot_id)
+    REFERENCES mascots(id),
+  FOREIGN KEY (team_id)
+    REFERENCES teams(id)
 );
 ```
 
@@ -180,13 +180,13 @@ CREATE TABLE IF NOT EXISTS represents
 CREATE TABLE IF NOT EXISTS has
 (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  team_name VARCHAR(255) NOT NULL,
-  coach_name VARCHAR(255) NOT NULL,
+  team_id INTEGER NOT NULL,
+  coach_id INTEGER NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (team_name)
-    REFERENCES teams(team_name),
-  FOREIGN KEY (coach_name)
-    REFERENCES coaches(coach_name)
+  FOREIGN KEY (team_id)
+    REFERENCES teams(id),
+  FOREIGN KEY (coach_id)
+    REFERENCES coaches(id)
 );
 ```
 
@@ -196,13 +196,13 @@ CREATE TABLE IF NOT EXISTS has
 CREATE TABLE IF NOT EXISTS contracts
 (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  team_name VARCHAR(255) NOT NULL,
-  player_name VARCHAR(255) NOT NULL,
+  team_id INTEGER NOT NULL,
+  player_id INTEGER NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (team_name)
-    REFERENCES teams(team_name),
-  FOREIGN KEY (player_name)
-    REFERENCES players(player_name)
+  FOREIGN KEY (team_id)
+    REFERENCES teams(id),
+  FOREIGN KEY (player_id)
+    REFERENCES players(id)
 );
 ```
 
