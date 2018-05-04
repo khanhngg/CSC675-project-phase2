@@ -260,7 +260,7 @@ VALUES
 ### 2. Coaches
 ```sql
 INSERT INTO coaches
-  (id, name, age, team_name, years_coached)
+  (id, coach_name, age, team_name, years_in_team)
 VALUES
   (1, 'Steve Kerr', 52, 'Golden State Warriors', 4)
   (2, 'Fred Hoiberg', 45, 'Chicago Bulls', 8);
