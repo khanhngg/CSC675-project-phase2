@@ -9,60 +9,68 @@ https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_mascots
 
 # Setup (in terminal)
 1. Make sure to have MySQL installed:
-```
-$ mysql --version
-````
+
+	```
+	$ mysql --version
+	```
 
 2. Start MySQL:
-```
-$ mysql.server start
-```
+
+	```
+	$ mysql.server start
+	```
 
 3. Run MySQL:
-```
-$ mysql -u root -p
-```
+
+	```
+	$ mysql -u root -p
+	```
 
 4. Terminal should look like this:
-```
-$ mysql -u root -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 4
-Server version: 5.7.20 Homebrew
 
-Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql>
-```
+	```
+	$ mysql -u root -p
+	Enter password:
+	Welcome to the MySQL monitor.  Commands end with ; or \g.
+	Your MySQL connection id is 4
+	Server version: 5.7.20 Homebrew
+	
+	Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+	
+	Oracle is a registered trademark of Oracle Corporation and/or its
+	affiliates. Other names may be trademarks of their respective
+	owners.
+	
+	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+	
+	mysql>
+	```
 
 5. To exit: 
-```
-mysql> exit
-```
+
+	```
+	mysql> exit
+	```
 
 6. In mysql, create new database called "csc675project" or use existing one:
-```sh
-mysql> CREATE DATABASE csc675project;
-Query OK, 1 row affected (0.02 sec)
-```
+
+	```sh
+	mysql> CREATE DATABASE csc675project;
+	Query OK, 1 row affected (0.02 sec)
+	```
 
 7. Use the "csc675project" database:
-```
-mysql> USE csc675project;
-Database changed
-```
+
+	```
+	mysql> USE csc675project;
+	Database changed
+	```
 
 8. Next time when you run MySQL again and want to use this database:
-```
-$ mysql -u root -p csc675project
-```
+	
+	```
+	$ mysql -u root -p csc675project
+	```
 
 # Requirements
 ### Task 1 - Create Tables, indexes and constraints
@@ -78,6 +86,7 @@ $ mysql -u root -p csc675project
 ### Task 4 - Final Report
 - All CREATE TABLE, INDEX, VIEW statements, as well as SELECT queries.
 - The snapshot of the results of your SELECT queries. If the results of your select queries are large just include part of the results.
+
 
 # Queries
 ## CREATE TABLE + FOREIGN KEY CONSTRAINTS
@@ -226,31 +235,9 @@ CREATE INDEX index_cname_tname
 ON coaches (coach_name, team_name);
 ```
 
-## CREATE VIEW
-### 1.
-```sql
-CREATE VIEW view_coaches_in_teams AS
-  SELECT coach_name, team_name
-  FROM coaches
-  WHERE coaches.years_in_team > 2;
-
-SELECT * FROM view_coaches_in_teams;
-```
-![view1](./ss/view1.png)
-
-### 2.
-```sql
-CREATE VIEW view_players_in_teams AS
-  SELECT p.player_name, p.team_name, p.years_pro
-  FROM players p 
-  WHERE p.years_pro >= 2 AND p.years_pro < 5;
-
-SELECT * FROM view_players_in_teams;
-```
-![view2](./ss/view2.png)
-
 ## INSERT INTO
 ### 1. Teams
+
 ```sql
 INSERT INTO teams
   (id, team_name, number_of_players, origin, year_established, owner, home_stadium)
@@ -260,6 +247,7 @@ VALUES
 ```
 
 ### 2. Coaches
+
 ```sql
 INSERT INTO coaches
   (id, coach_name, age, team_name, years_in_team)
@@ -269,6 +257,7 @@ VALUES
 ```
 
 ### 3. Mascots
+
 ```sql
 INSERT INTO mascots
   (id, mascot_name, team_name, costume)
@@ -278,6 +267,7 @@ VALUES
 ```
 
 ### 4. Players
+
 ```sql
 INSERT INTO players
   (id, player_name, age, team_name, jersey_number, position, years_pro)
@@ -319,6 +309,7 @@ VALUES
 ```
 
 ### 5. Trains
+
 ```sql
 INSERT INTO trains
   (id, coach_id, player_id)
@@ -360,6 +351,7 @@ VALUES
 ```
 
 ### 6. Represents
+
 ```sql
 INSERT INTO represents
   (id, mascot_id, team_id)
@@ -369,6 +361,7 @@ VALUES
 ```
 
 ### 7. Has
+
 ```sql
 INSERT INTO has
   (id, team_id, coach_id)
@@ -378,6 +371,7 @@ VALUES
 ```
 
 ### 8. Contracts
+
 ```sql
 INSERT INTO contracts
   (id, team_id, player_id)
@@ -418,6 +412,33 @@ VALUES
   (34, 2, 34);
 ```
 
+## CREATE VIEW
+### 1.
+
+```sql
+CREATE VIEW view_coaches_in_teams AS
+  SELECT coach_name, team_name
+  FROM coaches
+  WHERE coaches.years_in_team > 2;
+
+SELECT * FROM view_coaches_in_teams;
+```
+
+![view1](./ss/view1.png)
+
+### 2.
+
+```sql
+CREATE VIEW view_players_in_teams AS
+  SELECT p.player_name, p.team_name, p.years_pro
+  FROM players p 
+  WHERE p.years_pro >= 2 AND p.years_pro < 5;
+
+SELECT * FROM view_players_in_teams;
+```
+
+![view2](./ss/view2.png)
+
 ## SELECT QUERIES
 
 ### SELECT ALL
@@ -426,6 +447,7 @@ VALUES
 ```sql
 SELECT * FROM teams;
 ```
+
 ![teams](./ss/select_teams.png)
 
 ### 2. Players
@@ -433,6 +455,7 @@ SELECT * FROM teams;
 ```sql
 SELECT * FROM players;
 ```
+
 ![players](./ss/select_players.png)
 
 ### 3. Coaches
@@ -440,16 +463,19 @@ SELECT * FROM players;
 ```sql
 SELECT * FROM coaches;
 ```
+
 ![coaches](./ss/select_coaches.png)
 
 ### 4. Mascots
 ```sql
 SELECT * FROM mascots;
 ```
+
 ![mascots](./ss/select_mascots.png)
 
 ### GROUP BY, HAVING, aggregate operators
 ### 1. Find how many players have years of experience greater than 5 in each team
+
 ```sql
 SELECT p.team_name, p.years_pro, count(*)
 FROM players p
@@ -457,18 +483,22 @@ GROUP BY p.team_name, p.years_pro
 HAVING p.years_pro > 5
 ORDER BY p.team_name;
 ```
+
 ![groupby_having](./ss/groupby_having.png)
 
 ### 2. Find names of players with age >= 30
+
 ```sql
 SELECT p.player_name, p.age
 FROM players p
 HAVING p.age >= 30;
 ```
+
 ![having](./ss/having.png)
 
 ### IN, EXIST, op ANY, op ALL (nested queries)
 ### 1. IN - Find players whose position is PG in Golden State Warriors team
+
 ```sql
 SELECT *
 FROM players p
@@ -477,9 +507,11 @@ WHERE p.position = 'PG'
                   FROM teams t
                   WHERE t.team_name = 'Golden State Warriors');
 ```
+
 ![in](./ss/in.png)
 
 ### 2. EXISTS - Find the players that are trained by Fred Hoiberg
+
 ```sql
 SELECT *
 FROM players p
@@ -489,9 +521,11 @@ WHERE EXISTS (SELECT *
               AND t.player_id = p.id 
               AND t.coach_id = c.id);
 ```
+
 ![exists](./ss/exists.png)
 
 ### 3. ANY - Find all players in Chicago Bulls whose age is greater than any players whose age is greater than 25 in team Golden State Warriors
+
 ```sql
 SELECT *
 FROM players p
@@ -500,13 +534,16 @@ WHERE p.team_name = 'Chicago Bulls'
                       FROM players p2
                       WHERE p2.age > 25 AND p2.team_name = 'Golden State Warriors');
 ```
+
 ![any](./ss/any.png)
 
 ### 4. ALL - Find the player and their team name with the highest number of years pro
+
 ```sql
 SELECT p.player_name, p.team_name, p.years_pro
 FROM players p
 WHERE p.years_pro >= ALL (SELECT p2.years_pro
                           FROM players p2);
 ```
+
 ![all](./ss/all.png)
