@@ -216,7 +216,7 @@ ON players (player_name, age);
 
 ```sql
 CREATE INDEX index_name_jersey
-ON players (player_name, age);
+ON players (player_name, jersey_number);
 ```
 
 ### 2. Coaches
@@ -262,7 +262,7 @@ VALUES
 INSERT INTO coaches
   (id, coach_name, age, team_name, years_in_team)
 VALUES
-  (1, 'Steve Kerr', 52, 'Golden State Warriors', 4)
+  (1, 'Steve Kerr', 52, 'Golden State Warriors', 4),
   (2, 'Fred Hoiberg', 45, 'Chicago Bulls', 8);
 ```
 
@@ -319,101 +319,101 @@ VALUES
 ### 5. Trains
 ```sql
 INSERT INTO trains
-  (id, coach_name, player_name)
+  (id, coach_id, player_id)
 VALUES
-  (1, 'Steve Kerr', 'Klay Thompson'),
-  (2, 'Steve Kerr', 'Kevin Durant'),
-  (3, 'Steve Kerr', 'Draymond Green'),
-  (4, 'Steve Kerr', 'Stephen Curry'),
-  (5, 'Steve Kerr', 'Andre Iguodala'),
-  (6, 'Steve Kerr', 'Quinn Cook'),
-  (7, 'Steve Kerr', 'Nick Young'),
-  (8, 'Steve Kerr', 'Patrick McCaw'),
-  (9, 'Steve Kerr', 'Shaun Livingston'),
-  (10, 'Steve Kerr', 'Jordan Bell'),
-  (11, 'Steve Kerr', 'Zaza Pachulia'),
-  (12, 'Steve Kerr', 'Kevon Looney'),
-  (13, 'Steve Kerr', 'David West'),
-  (14, 'Steve Kerr', 'JaVale McGee'),
-  (15, 'Steve Kerr', 'Damian Jones'),
-  (16, 'Steve Kerr', 'Chris Boucher'),
-  (17, 'Fred Hoiberg', 'Ryan Arcidiacono'),
-  (18, 'Fred Hoiberg', 'Omer Asik'),
-  (19, 'Fred Hoiberg', 'Antonio Blakeney'),
-  (20, 'Fred Hoiberg', 'Kris Dunn'),
-  (21, 'Fred Hoiberg', 'Jarell Eddie'),
-  (22, 'Fred Hoiberg', 'Cristiano Felicio'),
-  (23, 'Fred Hoiberg', 'Jerian Grant'),
-  (24, 'Fred Hoiberg', 'Justin Holiday'),
-  (25, 'Fred Hoiberg', 'Sean Kilpatrick'),
-  (26, 'Fred Hoiberg', 'Zach LaVine'),
-  (27, 'Fred Hoiberg', 'Robin Lopez'),
-  (28, 'Fred Hoiberg', 'Lauri Markkanen'),
-  (29, 'Fred Hoiberg', 'David Nwaba'),
-  (30, 'Fred Hoiberg', 'Cameron Payne'),
-  (31, 'Fred Hoiberg', 'Bobby Portis'),
-  (32, 'Fred Hoiberg', 'Denzel Valentine'),
-  (33, 'Fred Hoiberg', 'Noah Vonleh'),
-  (34, 'Fred Hoiberg', 'Paul Zipser');
+  (1, 1, 1),
+  (2, 1, 2),
+  (3, 1, 3),
+  (4, 1, 4),
+  (5, 1, 5),
+  (6, 1, 6),
+  (7, 1, 7),
+  (8, 1, 8),
+  (9, 1, 9),
+  (10, 1, 10),
+  (11, 1, 11),
+  (12, 1, 12),
+  (13, 1, 13),
+  (14, 1, 14),
+  (15, 1, 15),
+  (16, 1, 16),
+  (17, 2, 17),
+  (18, 2, 18),
+  (19, 2, 19),
+  (20, 2, 20),
+  (21, 2, 21),
+  (22, 2, 22),
+  (23, 2, 23),
+  (24, 2, 24),
+  (25, 2, 25),
+  (26, 2, 26),
+  (27, 2, 27),
+  (28, 2, 28),
+  (29, 2, 29),
+  (30, 2, 30),
+  (31, 2, 31),
+  (32, 2, 32),
+  (33, 2, 33),
+  (34, 2, 34);
 ```
 
 ### 6. Represents
 ```sql
 INSERT INTO represents
-  (id, mascot_name, team_name)
+  (id, mascot_id, team_id)
 VALUES
-  (1, 'Thunder', 'Golden State Warriors'),
-  (2, 'Benny the Bull', 'Chicago Bulls');
+  (1, 1, 1),
+  (2, 2, 2);
 ```
 
 ### 7. Has
 ```sql
 INSERT INTO has
-  (id, team_name, coach_name)
+  (id, team_id, coach_id)
 VALUES
-  (1, 'Golden State Warriors', 'Steve Kerr'),
-  (2, 'Chicago Bulls', 'Fred Hoiberg');
+  (1, 1, 1),
+  (2, 2, 2);
 ```
 
 ### 8. Contracts
 ```sql
 INSERT INTO contracts
-  (id, team_name, player_name)
+  (id, team_id, player_id)
 VALUES
-  (1, 'Golden State Warriors', 'Klay Thompson'),
-  (2, 'Golden State Warriors', 'Kevin Durant'),
-  (3, 'Golden State Warriors', 'Draymond Green'),
-  (4, 'Golden State Warriors', 'Stephen Curry'),
-  (5, 'Golden State Warriors', 'Andre Iguodala'),
-  (6, 'Golden State Warriors', 'Quinn Cook'),
-  (7, 'Golden State Warriors', 'Nick Young'),
-  (8, 'Golden State Warriors', 'Patrick McCaw'),
-  (9, 'Golden State Warriors', 'Shaun Livingston'),
-  (10, 'Golden State Warriors', 'Jordan Bell'),
-  (11, 'Golden State Warriors', 'Zaza Pachulia'),
-  (12, 'Golden State Warriors', 'Kevon Looney'),
-  (13, 'Golden State Warriors', 'David West'),
-  (14, 'Golden State Warriors', 'JaVale McGee'),
-  (15, 'Golden State Warriors', 'Damian Jones'),
-  (16, 'Golden State Warriors', 'Chris Boucher'),
-  (17, 'Chicago Bulls', 'Ryan Arcidiacono'),
-  (18, 'Chicago Bulls', 'Omer Asik'),
-  (19, 'Chicago Bulls', 'Antonio Blakeney'),
-  (20, 'Chicago Bulls', 'Kris Dunn'),
-  (21, 'Chicago Bulls', 'Jarell Eddie'),
-  (22, 'Chicago Bulls', 'Cristiano Felicio'),
-  (23, 'Chicago Bulls', 'Jerian Grant'),
-  (24, 'Chicago Bulls', 'Justin Holiday'),
-  (25, 'Chicago Bulls', 'Sean Kilpatrick'),
-  (26, 'Chicago Bulls', 'Zach LaVine'),
-  (27, 'Chicago Bulls', 'Robin Lopez'),
-  (28, 'Chicago Bulls', 'Lauri Markkanen'),
-  (29, 'Chicago Bulls', 'David Nwaba'),
-  (30, 'Chicago Bulls', 'Cameron Payne'),
-  (31, 'Chicago Bulls', 'Bobby Portis'),
-  (32, 'Chicago Bulls', 'Denzel Valentine'),
-  (33, 'Chicago Bulls', 'Noah Vonleh'),
-  (34, 'Chicago Bulls', 'Paul Zipser');
+  (1, 1, 1),
+  (2, 1, 2),
+  (3, 1, 3),
+  (4, 1, 4),
+  (5, 1, 5),
+  (6, 1, 6),
+  (7, 1, 7),
+  (8, 1, 8),
+  (9, 1, 9),
+  (10, 1, 10),
+  (11, 1, 11),
+  (12, 1, 12),
+  (13, 1, 13),
+  (14, 1, 14),
+  (15, 1, 15),
+  (16, 1, 16),
+  (17, 2, 17),
+  (18, 2, 18),
+  (19, 2, 19),
+  (20, 2, 20),
+  (21, 2, 21),
+  (22, 2, 22),
+  (23, 2, 23),
+  (24, 2, 24),
+  (25, 2, 25),
+  (26, 2, 26),
+  (27, 2, 27),
+  (28, 2, 28),
+  (29, 2, 29),
+  (30, 2, 30),
+  (31, 2, 31),
+  (32, 2, 32),
+  (33, 2, 33),
+  (34, 2, 34);
 ```
 
 ## SELECT QUERIES
@@ -445,10 +445,11 @@ SELECT * FROM mascots;
 ### GROUP BY, HAVING, aggregate operators
 ### 1. Find how many players have years of experience greater than 5 in each team
 ```sql
-SELECT p.team_name, count(*)
+SELECT p.team_name, p.years_pro, count(*)
 FROM players as p
-GROUP BY p.team_name
-HAVING p.years_pro > 5;
+GROUP BY p.team_name, p.years_pro
+HAVING p.years_pro > 5
+ORDER BY p.team_name;
 ```
 
 ### 2. Find names of players with age >= 30
