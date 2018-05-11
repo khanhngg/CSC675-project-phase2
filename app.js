@@ -16,6 +16,7 @@ db.connect((err) => {
   console.log('Connect to db...');
 });
 
+// Middlewares
 const index = require('./routes/index');
 const teams = require('./routes/teams');
 const players = require('./routes/players');
@@ -24,19 +25,25 @@ const mascots = require('./routes/mascots');
 
 const app = express();
 
-// view engine setup
+// Database
+app.db = db;
+
+// Public directories
+app.use(express.static(path.join(__dirname, 'public')));
+
+// View engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
-app.db = db;
-
+// Routes
 app.use('/', index);
 app.use('/teams', teams);
 app.use('/players', players);
 app.use('/coaches', coaches);
 app.use('/mascots', mascots);
 
+// Listen on port
 app.listen('6750', () => {
   console.log('Listening on port 6750...');
 });

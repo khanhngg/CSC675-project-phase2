@@ -2,11 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (request, response, next) => {
-  let sql = 'SELECT * FROM teams';
-  let query = request.app.db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    response.send(result);
+  response.render('index', {
+    title: 'CSC 675 - Project',
+    tableName: ''
   });
 });
 
